@@ -23,14 +23,6 @@ class _HomePageState extends State<HomePage> {
           fontWeight: FontWeight.bold,
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.add),
-        onPressed: () {
-          setState(() {
-            count++;
-          });
-        },
-      ),
       body: Center(
         child: GestureDetector(
           child: Text('Flutterando: $count'),
@@ -40,6 +32,14 @@ class _HomePageState extends State<HomePage> {
             });
           },
         ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.add),
+        onPressed: () {
+          setState(() {
+            count++;
+          });
+        },
       ),
     );
   }
