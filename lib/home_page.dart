@@ -24,14 +24,40 @@ class _HomePageState extends State<HomePage> {
           fontSize: 20,
           fontWeight: FontWeight.bold,
         ),
+        actions: [
+          CustomSwitch(),
+        ],
       ),
-      body: Center(
-        child: Switch(
-          value: AppController.instance.isDartTheme,
-          onChanged: (value) {
-            AppController.instance.changeTheme();
-          },
-        ),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Text('Contador: $count'),
+          SizedBox(height: 25,),
+          CustomSwitch(),
+          SizedBox(height: 50,),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Container(
+                width: 50,
+                height: 50,
+                color: Colors.black,
+              ),
+              Container(
+                width: 50,
+                height: 50,
+                color: Colors.black,
+              ),
+              Container(
+                width: 50,
+                height: 50,
+                color: Colors.black,
+              )
+            ],
+          )
+        ],
+        
       ),
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add),
@@ -42,5 +68,19 @@ class _HomePageState extends State<HomePage> {
         },
       ),
     );
+  }
+}
+
+class CustomSwitch extends StatelessWidget {
+  const CustomSwitch({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Switch(
+    value: AppController.instance.isDartTheme,
+    onChanged: (value) {
+      AppController.instance.changeTheme();
+    },
+  );
   }
 }
