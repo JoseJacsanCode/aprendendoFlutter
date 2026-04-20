@@ -1,5 +1,6 @@
 import 'package:aprendendo_flutter/app_controller.dart';
 import 'package:aprendendo_flutter/home_page.dart';
+import 'package:aprendendo_flutter/login_page.dart';
 import 'package:flutter/material.dart';
 
 class AppWidget extends StatelessWidget {
@@ -17,8 +18,17 @@ class AppWidget extends StatelessWidget {
             brightness: AppController.instance.isDartTheme
                 ? Brightness.dark
                 : Brightness.light,
+            appBarTheme: AppBarTheme(
+              iconTheme: IconThemeData(
+                color: Colors.white
+              ),
+            )
           ),
-          home: HomePage(),
+          initialRoute: '/',
+          routes: {
+            '/': (context) => LoginPage(),
+            '/home': (context) => HomePage(),
+          },
         );
       },
     );
